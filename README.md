@@ -38,7 +38,7 @@ ETH、ETC、ERGO、RVN一键中转，支持E池、hive、flex、2miner、ezil，
 
 ## 4 输入命令
 ```Bash
-bash <( curl -s -L https://reurl.cc/g2vzeR )
+bash <( curl -s -L https://raw.githubusercontent.com/dimples9527/poolProxy/master/redir.sh )
 ```
 不要输错，不能复制
 
