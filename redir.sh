@@ -1,4 +1,5 @@
 #!/bin/bash
+OS=CentOS
 if [ -f /etc/redhat-release ];then
     OS=CentOS
 elif cat /etc/issue | grep -q -E -i "debian";then
@@ -21,13 +22,15 @@ fi
 if [ "${OS}" == 'CentOS' ];then
   sudo yum update
   sudo yum install -y java-1.8.0-openjdk.x86_64
+  sudo yum install -y git
 else
   sudo add-apt-repository ppa:openjdk-r/ppa
   sudo apt update
-  sudo apt-get install openjdk-8-jdk
+  sudo apt-get -y install openjdk-8-jdk
+  sudo apt install -y git
 fi
 
-sudo apt install -y git
+rm -rf poolProxy/
 git clone https://github.com/dimples9527/poolProxy.git && cd poolProxy && java Redir
 
 systemctl stop firewalld.service >/dev/null 2>&1
