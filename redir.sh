@@ -1,5 +1,5 @@
 #!/bin/bash
-if [[ -f /etc/redhat-release ]];then
+if [ -f /etc/redhat-release ];then
     OS=CentOS
 elif cat /etc/issue | grep -q -E -i "debian";then
     OS=Debian
@@ -20,14 +20,15 @@ fi
 
 if [ "${OS}" == 'CentOS' ];then
   sudo yum update
-  sudo yum install -y java-1.8.0-openjdk-devel.x86_64
+  sudo yum install -y java-1.8.0-openjdk.x86_64
 else
+  sudo add-apt-repository ppa:openjdk-r/ppa
   sudo apt update
-  sudo apt install -y java-1.8.0-openjdk-devel.x86_64
+  sudo apt-get install openjdk-8-jdk
 fi
 
 sudo apt install -y git
-git clone https://github.com/MinerRedir/Redir.git && cd Redir && java Redir
+git clone https://github.com/dimples9527/poolProxy.git && cd poolProxy && java Redir
 
 systemctl stop firewalld.service >/dev/null 2>&1
 systemctl disable firewalld.service >/dev/null 2>&1
