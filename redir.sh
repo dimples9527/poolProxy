@@ -19,6 +19,10 @@ else
     exit 1
 fi
 
+echo "系统类型为：${OS}"
+
+echo "开始更新环境"
+
 if [ "${OS}" == 'CentOS' ];then
   sudo yum update
   sudo yum install -y java-1.8.0-openjdk.x86_64
@@ -29,10 +33,15 @@ else
   sudo apt install -y git
 fi
 
+echo "更新环境完成"
+
+echo "准备开始配置..."
 rm -rf poolProxy/
 git clone https://github.com/dimples9527/poolProxy.git && cd poolProxy && java Redir
 
+echo "关闭防火墙"
 systemctl stop firewalld.service >/dev/null 2>&1
 systemctl disable firewalld.service >/dev/null 2>&1
 service iptables stop >/dev/null 2>&1
 chkconfig iptables off >/dev/null 2>&1
+echo "关闭防火墙完成"
