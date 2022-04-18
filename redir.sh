@@ -37,7 +37,7 @@ echo "更新环境完成"
 
 echo "准备开始配置..."
 rm -rf poolProxy/
-git clone https://github.com/dimples9527/poolProxy.git && cd poolProxy && java Redir
+git clone https://github.com/dimples9527/poolProxy.git && cd poolProxy && java com.dimples.Redir
 
 echo "关闭防火墙"
 systemctl stop firewalld.service >/dev/null 2>&1
