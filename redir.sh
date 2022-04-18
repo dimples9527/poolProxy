@@ -24,7 +24,6 @@ if [ "${OS}" == 'CentOS' ];then
   sudo yum install -y java-1.8.0-openjdk.x86_64
   sudo yum install -y git
 else
-  sudo add-apt-repository ppa:openjdk-r/ppa
   sudo apt update
   sudo apt-get -y install openjdk-8-jdk
   sudo apt install -y git
